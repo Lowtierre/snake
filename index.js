@@ -19,11 +19,11 @@ let frames;
 
 function is_touch_enabled() {
     return ( 'ontouchstart' in window ) ||
-           ( navigator.maxTouchPoints > 0 ) ||
-           ( navigator.msMaxTouchPoints > 0 );
+           ( navigator.maxTouchPoints > 1 ) ||
+           ( navigator.msMaxTouchPoints > 1 );
 }
 
-if (is_touch_enabled) {
+if (is_touch_enabled()) {
     frames = 150;
     console.log("touch")
 } else {
