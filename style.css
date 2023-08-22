@@ -59,3 +59,30 @@ body {
 .snake {
     background-color: #cceecc;
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .scores, .controls, .playboard {
+        width: 100%;
+    }
+    .controls {
+        grid-template: 50px 50px 50px / 50% 50%;
+    }
+    .up {
+        grid-area: 1 / 1 / 2 / 4;
+    }
+    .left {
+        grid-area: 2 / 1 / 2 / 2;
+    }
+    .right {
+        grid-area: 2 / 2 / 3 / 4;
+    }
+    .down {
+        grid-area: 3 / 1 / 3 / 4;
+    }
+}
