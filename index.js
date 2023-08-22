@@ -3,8 +3,6 @@ const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".control");
 
-const 30 = 30;
-
 // game variables
 
 let gameOver = false;
@@ -14,20 +12,24 @@ let velocityX = 0, velocityY = 0;
 let snakeBody = [];
 let setIntervalId;
 let score = 0;
-localStorage.setItem(0);
 highScore = localStorage.getItem("high-score");
 let frames;
 
 // control if device is touch or not
 
-const isTouchDevice = () => {
-    try {
-        document.createEvent("TouchEvent");
-        frames = 150;
-    } catch (e) {
-        frames = 100;
-    }
-};
+function is_touch_enabled() {
+    return ( 'ontouchstart' in window ) ||
+           ( navigator.maxTouchPoints > 0 ) ||
+           ( navigator.msMaxTouchPoints > 0 );
+}
+
+if (is_touch_enabled) {
+    frames = 150;
+    console.log("touch")
+} else {
+    frames = 100;
+    console.log("mouse")
+}
 
 // update position of food 
 
@@ -130,7 +132,6 @@ const initGame = () => {
 
 // initialize
 
-isTouchDevice()
 updateFoodPos()
 setIntervalId = setInterval(initGame, frames);
 
