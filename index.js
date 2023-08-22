@@ -12,8 +12,17 @@ let velocityX = 0, velocityY = 0;
 let snakeBody = [];
 let setIntervalId;
 let score = 0;
-
 let highScore = localStorage.getItem("high-score");
+let frames;
+
+const isTouchDevice = () => {
+    try {
+        document.createEvent("TouchEvent");
+        frames = 70;
+    } catch (e) {
+        frames = 100;
+    }
+};
 
 const updateFoodPos = () => {
     foodX = Math.floor(Math.random() * dim) + 1;
@@ -89,12 +98,12 @@ const initGame = () => {
     }
     playboard.innerHTML = html;
 }
-
+isTouchDevice()
 updateFoodPos()
-setIntervalId = setInterval(initGame, 100);
+setIntervalId = setInterval(initGame, frames);
 document.addEventListener("keyup", e => changeDirection(e.key));
 
 controls.forEach(button => {
     button.addEventListener("click", () => changeDirection(button.dataset.key));
-    button.addEventListener("touchup", () => changeDirection(button.dataset.key));
+    button.addEventListener("touchend", () => changeDirection(button.dataset.key));
 })
