@@ -18,7 +18,7 @@ let frames;
 const isTouchDevice = () => {
     try {
         document.createEvent("TouchEvent");
-        frames = 50;
+        frames = 150;
     } catch (e) {
         frames = 100;
     }
