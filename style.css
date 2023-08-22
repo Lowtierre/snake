@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eeffee;
+}
+
+.container {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #304545;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+    color: #cceecc;
+}
+
+.playboard {
+    height: 60vh;
+    width: 60vh;
+    background-color: #203535;
+    margin: 10px 0 1px;
+    display: grid;
+    grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+}
+
+.controls button {
+    background-color: #203535;
+    border: none;
+    padding: 10px 0;
+    margin: 1px;
+    color: #cceecc;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: #cceecc;
+    color: #203535;
+}
+
+.food {
+    background-color: #df1f1f;
+}
+
+.snake {
+    background-color: #cceecc;
+}
