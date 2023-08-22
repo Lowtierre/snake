@@ -52,6 +52,11 @@ body {
     color: #203535;
 }
 
+.controls button:focus {
+    background-color: #203535;
+    color: #cceecc;
+}
+
 .food {
     background-color: #df1f1f;
 }
